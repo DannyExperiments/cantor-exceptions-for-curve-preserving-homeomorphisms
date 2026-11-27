@@ -37,3 +37,4 @@
 - `visualization/construction.gif`
 - `visualization/index.html`
 - `visualization/render.py`
+- `visualization/version-doi.svg`
