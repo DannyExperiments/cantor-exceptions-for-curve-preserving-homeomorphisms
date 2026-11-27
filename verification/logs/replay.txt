@@ -1,0 +1,2 @@
+PASS: 16 levels of nesting, disjointness, vertical test and scale bounds
+PASS: even upper bound 1025/1024, odd lower bound 1023/512

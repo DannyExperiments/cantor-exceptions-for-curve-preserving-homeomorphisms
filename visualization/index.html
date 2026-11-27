@@ -1,0 +1,37 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>One Cantor address, two limiting scales</title>
+<style>
+:root{color-scheme:dark}body{margin:0 auto;max-width:850px;padding:24px;background:#142b40;color:#eaf1f4;font:17px/1.5 system-ui,sans-serif}h1{font-size:clamp(25px,5vw,38px);line-height:1.1}p{max-width:76ch}canvas{display:block;width:100%;background:#0d2234;border-radius:8px}label{display:flex;gap:12px;align-items:center;margin:10px 0}input{width:min(220px,40vw)}button{padding:8px 14px;border-radius:6px}.gold{color:#f3bd73}.teal{color:#63d8c7}.small{font-size:.88rem;color:#bacbd6}
+</style>
+<h1>One Cantor address, two limiting scales</h1>
+<p>Each fork chooses a left or right child disk. Depth runs from the root to the last row. Height is the exact dilation of that core at its finite stage. Drag the rotation control to see a single path climb and fall.</p>
+<canvas width="790" height="375" aria-label="Rotatable branching diagram of binary disk addresses. Height alternates between scales one and two."></canvas>
+<label>Rotate <input id="angle" type="range" min="-180" max="180" value="-25" step="1"></label>
+<label>Depth <input id="depth" type="range" min="1" max="6" value="4" step="1"><output id="levelOut">4</output></label>
+<label>Highlighted address <input id="address" type="range" min="0" max="15" value="0"><output id="addrOut"></output></label>
+<p id="readout" aria-live="polite"></p>
+<p class="small"><span class="teal">Teal points have scale 1.</span> <span class="gold">Gold points have scale 2.</span> Horizontal spacing is schematic. For the actual map at a limit point, the vertical difference quotient stays within 2<sup>−n−8</sup> of the stage-n scalar times the vertical unit vector. In the plane the core disks lie on a common axis. The diagram adds height to encode the scalar.</p>
+<script>
+const canvas=document.querySelector('canvas'),ctx=canvas.getContext('2d');
+const angle=document.querySelector('#angle'),depth=document.querySelector('#depth'),address=document.querySelector('#address');
+function draw(){
+  const n=Number(depth.value),k=Number(address.value),a=Number(angle.value)*Math.PI/180;
+  document.querySelector('#levelOut').value=n;
+  const bits=k.toString(2).padStart(n,'0');
+  document.querySelector('#addrOut').value=Array.from(bits,c=>c==='0'?'L':'R').join('');
+  const point=(j,i)=>{
+    const x=(2*i+1)/(2**j)-1,y=2*j/n-1,z=(j%2)*.86-.43;
+    return [395+190*(x*Math.cos(a)-y*Math.sin(a)),185+78*(x*Math.sin(a)+y*Math.cos(a))-139*z];};
+  const line=(p,q,color,width)=>{ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=width;ctx.moveTo(...p);ctx.lineTo(...q);ctx.stroke();};
+  ctx.clearRect(0,0,790,375);
+  for(let j=1;j<=n;j++)for(let i=0;i<2**j;i++)
+    line(point(j-1,i>>1),point(j,i),'#516b80',1.5);
+  for(let j=1;j<=n;j++)line(point(j-1,k>>(n-j+1)),point(j,k>>(n-j)),'#fff',4);
+  for(let j=0;j<=n;j++)for(let i=0;i<2**j;i++){
+    const p=point(j,i);ctx.beginPath();ctx.arc(...p,i===(k>>(n-j))?6:3,0,2*Math.PI);
+    ctx.fillStyle=j%2?'#f3bd73':'#63d8c7';ctx.fill();}
+  const A=n%2?2:1;
+  document.querySelector('#readout').textContent='At depth '+n+', this core has scalar '+A+
+    '. The quotient error is at most 1/'+(2**(n+8))+'. Continuing down either child changes the scalar to '+(3-A)+'.';}
+depth.oninput=()=>{address.max=2**Number(depth.value)-1;if(+address.value>+address.max)address.value=address.max;draw();};
+angle.oninput=address.oninput=draw;draw();
+</script></html>

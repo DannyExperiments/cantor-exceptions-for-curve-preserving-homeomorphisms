@@ -1,0 +1,20 @@
+{
+  "title": "Cantor exceptions for homeomorphisms preserving regular C¹ curves",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "version": "1.0.0",
+  "creators": [
+    {
+      "name": "DannyExperiments"
+    }
+  ],
+  "keywords": [
+    "surface homeomorphisms",
+    "continuously differentiable curves",
+    "Cantor exceptional set",
+    "almost-everywhere differentiability",
+    "bilipschitz homeomorphisms",
+    "Gehring-Lehto theorem"
+  ],
+  "description": "Can a homeomorphism preserving regular embedded C¹ circles in both directions be nondifferentiable on an uncountable set? Yes. The disk-supported locally bilipschitz example constructed here has a Cantor set as its exact exceptional set. Positive area is impossible for every homeomorphism satisfying even the forward preservation property. These conclusions answer the two parts of Booth’s Question 1.5.\n\nA sequence of radial maps acts as a scalar on nested cores. The cumulative scalar alternates between one and two. Derivative anisotropy tends uniformly to zero on neighborhoods of every Cantor point. Tangent directions survive under the forward and inverse maps, while vertical difference quotients have different even and odd limits. The area branch follows from differentiability along coordinate segments and the classical planar theorem of Gehring and Lehto.\n\nLe Roux–Wolff give a one-point example; Booth’s countable construction can also make its single limit point singular. Here every point of a perfect set is singular. The finite replay checks disk containment, support separation, the alternating cumulative scalars and quantitative quotient bounds at 16 levels. The mathematical proof establishes the limiting behavior. The six archival files are the paper, LaTeX source, bibliography, citation metadata, checksum ledger and complete evidence bundle. No Lean formalization is claimed. Internally reviewed, not peer reviewed.\n\nThe discovery project credits ChatGPT Astra 6.2 (OpenAI). OpenAI Codex prepared and examined the proof, manuscript, replay and visual material. GPT-6.2 Sol checked the primary literature. DannyExperiments is the preferred citation identity."
+}

@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "Please cite the archived version of this mathematical result."
+type: software
+title: "Cantor exceptions for homeomorphisms preserving regular C¹ curves"
+authors:
+  - name: "DannyExperiments"
+version: "1.0.0"
+repository-code: "https://github.com/DannyExperiments/cantor-exceptions-for-curve-preserving-homeomorphisms"
+keywords:
+  - "surface homeomorphisms"
+  - "continuously differentiable curves"
+  - "Cantor exceptional set"
+  - "almost-everywhere differentiability"
+  - "bilipschitz homeomorphisms"
+  - "Gehring-Lehto theorem"

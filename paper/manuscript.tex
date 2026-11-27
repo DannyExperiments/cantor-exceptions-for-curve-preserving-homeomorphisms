@@ -1,0 +1,81 @@
+\documentclass[11pt,a4paper]{amsart}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage[hidelinks]{hyperref}
+\setlength{\emergencystretch}{2em}
+\DeclareMathSizes{8}{8}{8}{8}
+\DeclareMathSizes{9}{9}{8}{8}
+\DeclareMathSizes{10.95}{10.95}{8}{8}
+\DeclareFontFamily{OMX}{cmex}{}
+\DeclareFontShape{OMX}{cmex}{m}{n}{<-> cmex10}{}
+\raggedbottom
+\newtheorem{theorem}{Theorem}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Cset}{\mathcal K}
+\title[Cantor exceptions for curve-preserving homeomorphisms]{Cantor exceptions for homeomorphisms preserving regular \(C^1\) curves}
+\date{}
+\begin{document}
+\begin{abstract}
+A surface homeomorphism that takes each regular embedded \(C^1\) circle to another such circle is differentiable almost everywhere.
+Conversely, in a disk of any smooth surface one can support a locally bilipschitz homeomorphism preserving these circles in both directions whose set of nondifferentiability is a Cantor set.
+This answers the two alternatives in Booth's Question~1.5.
+Nested radial changes of scale make vertical difference quotients oscillate at every Cantor point while the error in tangent direction tends uniformly to zero.
+\end{abstract}
+\maketitle
+\section{The question}
+Booth asks whether the exceptional set of a homeomorphism preserving differentiable curves in both directions can be uncountable or have positive measure \cite[Question~1.5]{booth}. Here a curve is a regular \(C^1\) embedded circle, regarded as a subset; the requirement concerns the regularity of that subset under a suitable parametrization. Area is taken in any smooth positive area density. Differentiability means ordinary Fr\'echet differentiability in smooth coordinates. We work on second-countable smooth surfaces; the construction is supported in an interior coordinate disk. If a boundary is present, it has area zero and the example is the identity in a neighborhood of it.
+\begin{theorem}\label{main}
+Every surface homeomorphism taking regular embedded \(C^1\) circles to regular embedded \(C^1\) circles is differentiable almost everywhere. On every smooth surface there is a disk-supported locally bilipschitz homeomorphism which, together with its inverse, preserves all such circles and whose exact set of nondifferentiability is homeomorphic to the Cantor set.
+\end{theorem}
+Le Roux and Wolff give a single exceptional point \cite[Section~5]{lerouxwolff}. Booth's Lemmas~2.1 and~2.4 include a tangent-preserving singularity and a patching construction with countably many exceptional points; the latter can also make its one limit point exceptional. Accumulations of isolated exceptional points need not themselves be exceptional. Here each infinite binary address specifies a point with two distinct limiting vertical difference quotients.
+
+\section{The area of the exceptional set}
+Choose a source coordinate rectangle whose image lies in a target chart. Any sufficiently short horizontal or vertical segment in the rectangle lies in a smooth embedded circle: close the segment by a return arc and smooth the turns away from the segment. The image of the segment lies on a regular \(C^1\) curve. Near each interior point its image is a graph over a target coordinate axis. On a sufficiently short subinterval the projection onto this axis is a continuous injective function of the source parameter and is therefore strictly monotone. It has a finite derivative almost everywhere. Composing with the \(C^1\) graph parametrization gives a finite vector derivative almost everywhere along this subinterval. A countable subcover gives the conclusion on each coordinate segment.
+
+The sets where the corresponding partial derivatives exist and are finite are measurable. For example, the Cauchy criterion for the continuous difference quotients at nonzero rational increments suffices, by density and continuity in the increment. Fubini now gives finite first partial derivatives in both coordinate directions at almost every point of the rectangle. By the theorem of Gehring and Lehto \cite{gehringlehto}, a continuous open planar map with finite partial derivatives almost everywhere is totally differentiable almost everywhere. The chart expression of our homeomorphism is open. A countable cover gives the first assertion. Only forward preservation entered the argument.
+
+\section{Nested changes of scale}
+It suffices to work in the plane. Inside a closed disk \(D_0\) of radius \(r_0\) centered on the horizontal axis, recursively place two disjoint child support disks in each parent core. For level \(n\ge1\) the new centers have horizontal offsets \(\pm r_{n-1}/8\) from the parent center. The support disks have radius \(R_n=2^{-n-10}r_{n-1}\) and contain concentric closed cores of radius \(r_n=R_n\exp(-L_n)\), where \(L_n>0\) will be large. Each support disk lies strictly inside its parent core. Write \(K_n\) for the union of the \(2^n\) level-\(n\) cores and \(\Cset=\bigcap_{n\ge1}K_n\). The nested core associated to each infinite binary address has one point because the radii tend to zero. Disjoint siblings and compactness show that this coding is a homeomorphism from the binary Cantor space onto \(\Cset\). The centers lie on the horizontal axis, so \(\Cset\) lies there as well.
+
+Set \(s_n=2\) for odd \(n\) and \(s_n=1/2\) for even \(n\); then \(A_n=\prod_{j=1}^n s_j\) alternates between 2 and 1, and \(A_0=1\). Choose a smooth \(\phi:\R\to[0,1]\), equal to one on \((-\infty,0]\) and zero on \([1,\infty)\). On a level-\(n\) support disk about \(c\) use the radial map
+\[
+ g_n(c+v)=c+a_n(|v|)v,\qquad
+ a_n(r)=\exp\!\left((\log s_n)\phi\!\left(\frac{\log(r/r_n)}{L_n}\right)\right).
+\]
+Use \(a_n(0)=s_n\), and define \(g_n\) to be the identity outside the support disks. The tangential eigenvalue of \(Dg_n\) is \(a_n\), and the radial one is \(a_n+ra_n'\). Since
+\(r|a_n'|\le 2(\log 2)\|\phi'\|_\infty/L_n\), choose \(L_n\) so that
+\(A_{n-1}r|a_n'|\le2^{-n-3}\).
+The positive radial derivative, matching smooth cutoff at both ends, and constant core scaling make \(g_n\) a smooth diffeomorphism carrying each support disk onto itself.
+
+Put \(F_n=g_1\circ\cdots\circ g_n\). On each level-\(n\) core it is a similarity with derivative \(A_n I\). Indeed \(g_n\) takes its support into its parent core, where \(F_{n-1}\) is a similarity. At a point that first exits the nested cores at level \(j\le n\), the subsequent maps are locally the identity and the derivative is \(A_{j-1}Dg_j\); outside \(D_0\) it is \(I\). At boundaries the adjacent scalar expressions agree. Thus every derivative is a symmetric matrix \(bI+E\) where \(1\le b\le2\) and \(\|E\|\le1/8\). On any fixed level-\(N\) core and for all \(n\ge N\), the bound improves to \(\|E\|\le\delta_N=2^{-N-3}\), since a nonzero error can only come from a deeper level. Integration on straight segments bounds the Lipschitz constant by \(17/8\). Taking the scalar product with the segment direction during the integration gives the lower Lipschitz bound \(7/8\).
+
+Since \(F_{n-1}\) is a similarity on each new support disk before the next deformation,
+\(\|F_n-F_{n-1}\|_\infty\le4R_n\).
+These bounds are summable. The uniform limit \(F\) is bilipschitz onto the plane: the lower bound gives injectivity, and for any point in \(D_0\) the finite-stage preimages have a subsequence converging in that disk. Outside \(D_0\) all maps are the identity. Local stabilization proves that \(F\) is a smooth diffeomorphism off \(\Cset\) onto the complement of \(F(\Cset)\). All later changes preserve a fixed level-\(N\) core \(D\) as a set, so \(F_n(D)=F_N(D)\) for \(n\ge N\). This image is a round disk. Uniform convergence and compactness of \(D\) give \(F(D)=F_N(D)\).
+
+\section{Control of unparametrized tangents}
+For \(x,y\) in one level-\(N\) core, integrate \(DF_n\) along the segment \([x,y]\). Averaging its scalar part and passing to a convergent subsequence in \([1,2]\) gives
+\[
+ F(y)-F(x)=b(x,y)(y-x)+e(x,y),\quad
+ 1\le b(x,y)\le2,\quad |e(x,y)|\le\delta_N|y-x|.
+\]
+For \(x\ne y\), the unit directions of the two secants thus differ by at most \(2\delta_N/(1-\delta_N)\). Every point \(p\in\Cset\) is in the interior of every one of its cores, by strict containment of its child supports. At \(p\) the change of direction therefore tends uniformly to zero over all pairs of nearby distinct points. At \(F(p)\) the same holds for \(F^{-1}\): each image core is a neighborhood there, and each target pair in it pulls back to a pair in the corresponding source core. Comparing the two unit directions is symmetric.
+
+Let a regular \(C^1\) arc pass through \(p\). Use its oriented tangent there as horizontal axis. On a sufficiently short source arc all forward secants lie in a narrow cone about the positive axis. The uniform direction estimate on a sufficiently small core puts all forward image secants in a slightly larger cone, still making an acute angle with the positive axis. The projected image is strictly increasing in an oriented arc parameter; its inverse is continuous. The image is thus locally a graph. At a point belonging to \(F(\Cset)\) the secants through that point have limiting direction equal to the source tangent there, using ever deeper cores about its preimage. The difference quotients in graph coordinates consequently converge. At all other points smoothness gives the graph derivative.
+
+The graph derivative is continuous at each point of \(F(\Cset)\) as well. Given an angle tolerance, choose a source core at its preimage so small that both the angular errors and the variation in the source tangents on the arc are below that tolerance. At each point of a smaller subarc, the derivative direction is a limit of secants that stay in this core. These derivative directions therefore converge to the central source tangent, and in the chosen acute cone passage to slopes is continuous. A graph with continuous derivative is regularly parametrized by its horizontal coordinate. This verifies preservation by \(F\), and the inverse secant estimate verifies preservation by \(F^{-1}\).
+
+\section{Failure of even a directional derivative}
+At \(p\in\Cset\) let \(D\) be its level-\(n\) core and \(e_2=(0,1)\). Put \(q_n=p+(r_n/2)e_2\). The child supports are within \(r_n/4\) of the center of \(D\). Thus \(q_n\) stays inside \(D\) and misses every child support, by its vertical displacement from the horizontal axis. Consequently \(F(q_n)=F_n(q_n)\). At \(p\) every composition \(g_{n+1}\circ\cdots\circ g_m\), for \(m>n\), preserves its level-\((n+1)\) support disk, so that \(|F(p)-F_n(p)|\le4R_{n+1}\). Hence
+\[
+ \left|\frac{F(q_n)-F(p)}{r_n/2}-A_n e_2\right|
+ \le\frac{8R_{n+1}}{r_n}=2^{-n-8}.
+\]
+The two limiting vertical quotients \(e_2\) and \(2e_2\) rule out differentiability at every \(p\in\Cset\). Elsewhere \(F\) is smooth. Extending by the identity from the coordinate disk proves the second assertion of Theorem~\ref{main}.
+
+\paragraph{Verification and disclosure.}
+The accompanying rational-arithmetic replay illustrates the scale estimates at finite depth. The proof above establishes the infinite construction. AI assistance was used in construction and review under human direction. The repository provides the technical disclosure and review status.
+\bibliographystyle{amsplain}
+\bibliography{references}
+\end{document}

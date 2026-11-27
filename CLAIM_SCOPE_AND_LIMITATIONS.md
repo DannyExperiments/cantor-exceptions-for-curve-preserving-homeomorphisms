@@ -1,0 +1,3 @@
+# Scope
+
+Regular C¹ circles are embedded and are treated as unparametrized submanifolds. The example is supported in one interior coordinate disk. Its entire set of failure of ordinary Fréchet differentiability is a Cantor set lying on one coordinate line. The result makes no assertion about exceptional sets of every possible dimension or the differentiability of a fixed curve parametrization after composition. Positive-area exclusion uses only the forward mapping property. Its planar differentiation input is a classical theorem. [Literature audit](audits/public_safe_reports/LITERATURE_AUDIT.md)
